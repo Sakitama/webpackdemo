@@ -59,6 +59,10 @@ const webpackConfig = {
             },
             {
                 test: /\.(jpg|png|gif|svg)$/i,
+                loaders: [
+                    'url-loader?limit=20000&name=assets/[name]-[hash:5].[ext]',
+                    'image-webpack-loader'
+                ]/*,
                 use: [
                     {
                         loader: "url-loader",
@@ -67,7 +71,7 @@ const webpackConfig = {
                             limit: 40000
                         }
                     }
-                ]
+                ]*/
             }
         ]
     },
