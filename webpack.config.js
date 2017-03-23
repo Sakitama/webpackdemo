@@ -61,9 +61,10 @@ const webpackConfig = {
                 test: /\.(jpg|png|gif|svg)$/i,
                 use: [
                     {
-                        loader: "file-loader",
+                        loader: "url-loader",
                         options: {
-                            name: "assets/[name]-[hash:5].[ext]"
+                            name: "assets/[name]-[hash:5].[ext]",
+                            limit: 40000
                         }
                     }
                 ]
