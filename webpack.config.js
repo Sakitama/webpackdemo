@@ -48,6 +48,14 @@ const webpackConfig = {
                         loader: "html-loader"
                     }
                 ]
+            },
+            {
+                test: /\.tpl$/,
+                use: [
+                    {
+                        loader: "ejs-loader"
+                    }
+                ]
             }
         ]
     },

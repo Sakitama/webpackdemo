@@ -475,8 +475,8 @@ if(false) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_html__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__layer_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_tpl__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_tpl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__layer_tpl__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layer_less__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layer_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__layer_less__);
 
@@ -485,7 +485,7 @@ if(false) {
 function Layer () {
     return {
         name: 'Layer',
-        tpl: __WEBPACK_IMPORTED_MODULE_0__layer_html___default.a
+        tpl: __WEBPACK_IMPORTED_MODULE_0__layer_tpl___default.a
     };
 }
 
@@ -537,7 +537,24 @@ exports.push([module.i, ".flex-box {\r\n    display: -webkit-flex;\r\n    displa
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"layer\">\r\n    <div>this is a layer</div>\r\n</div>";
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '', __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+with (obj) {
+__p += '<div class="layer">\r\n    <div>this is ' +
+((__t = ( name )) == null ? '' : __t) +
+' layer</div>\r\n    ';
+ for (var i = 0; i < arr.length; i++) { ;
+__p += '\r\n    ' +
+((__t = ( arr[i] )) == null ? '' : __t) +
+'\r\n    ';
+ } ;
+__p += '\r\n</div>';
+
+}
+return __p
+}
 
 /***/ }),
 /* 8 */
@@ -2722,7 +2739,10 @@ class App {
     constructor () {
         let dom = document.getElementById('app');
         let layer = new __WEBPACK_IMPORTED_MODULE_1__components_layer_layer__["a" /* default */]();
-        dom.innerHTML = layer.tpl;
+        dom.innerHTML = layer.tpl({
+            name: "hash",
+            arr: ["apple", "nokia", "huawei"]
+        });
     }
 }
 
