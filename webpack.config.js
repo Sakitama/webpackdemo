@@ -56,6 +56,17 @@ const webpackConfig = {
                         loader: "ejs-loader"
                     }
                 ]
+            },
+            {
+                test: /\.(jpg|png|gif|svg)$/i,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "assets/[name]-[hash:5].[ext]"
+                        }
+                    }
+                ]
             }
         ]
     },
